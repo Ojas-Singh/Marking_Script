@@ -45,11 +45,12 @@ def main():
 
     # Iterate over sections to get input from the user
     for section, max_marks in sections.items():
-        with st.form(key=section):
-            st.subheader(section)
-            marks = st.number_input(f"Enter marks for {section}", min_value=0.0, max_value=max_marks, step=0.1)
-            feedback = st.text_area(f"Enter feedback for {section}", help=f"Write the feedback for the {section} section.")
-            submit_button = st.form_submit_button(label='Save')
+    with st.form(key=section):
+        st.subheader(section)
+        # Convert max_marks to float to match the type of min_value and step
+        marks = st.number_input(f"Enter marks for {section}", min_value=0.0, max_value=float(max_marks), step=0.1)
+        feedback = st.text_area(f"Enter feedback for {section}", help=f"Write the feedback for the {section} section.")
+        submit_button = st.form_submit_button(label='Save')
 
             if submit_button:
                 feedback_data[section] = {"marks": marks, "max_marks": max_marks, "feedback": feedback}
