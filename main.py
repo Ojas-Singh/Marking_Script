@@ -70,12 +70,14 @@ with st.form(key='feedback_form'):
     marks_awarded = {}
     feedback_given = {}
 
+    # Adjust the titles to include maximum marks and change the number input step
     for section, max_marks in sections.items():
-        marks_awarded[section] = st.number_input(f"Marks for {section}", min_value=0.0, max_value=float(max_marks), step=0.1, format="%.1f")
+        title = f"Marks for {section} (Max: {max_marks})"
+        marks_awarded[section] = st.number_input(title, min_value=0.0, max_value=float(max_marks)+0.1, step=0.1, format="%.2f")
         feedback_given[section] = st.text_area(f"Feedback for {section}", value=dummy_feedback[section], height=100)
 
     submitted = st.form_submit_button("Submit")
 
 if submitted:
     feedback_table = create_feedback_table(marks_awarded, feedback_given, sections)
-    st.code( feedback_table)
+    st.code(feedback_table)
