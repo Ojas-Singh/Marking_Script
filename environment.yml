@@ -1,0 +1,4 @@
+channels:
+  - schrodinger
+dependencies:
+  - pymol-open-source
