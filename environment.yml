@@ -1,6 +1,0 @@
-
-channels:
-  - conda-forge
-  - schrodinger
-dependencies:
-  - pymol-open-source
