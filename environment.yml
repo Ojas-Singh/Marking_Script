@@ -2,4 +2,4 @@ name: base
 channels:
   - schrodinger
 dependencies:
-  - pymol-open-source
+  - pymol
