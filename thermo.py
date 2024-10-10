@@ -39,7 +39,7 @@ def create_feedback_table(marks_awarded, feedback_given, sections):
 
     rows = ""
     for section, max_mark in sections.items():
-        marks_str = f"{marks_awarded[section]:.1f}/{max_mark:.1f}"
+        marks_str = f"{marks_awarded[section]}/{max_mark}"
         rows += (
             f"| {section.ljust(section_width)} | "
             f"{marks_str.center(marks_width)} | "
@@ -48,7 +48,7 @@ def create_feedback_table(marks_awarded, feedback_given, sections):
     
     total_marks = sum(marks_awarded.values())
     total_max = sum(sections.values())
-    total_marks_str = f"{total_marks:.1f}/{total_max:.1f}"
+    total_marks_str = f"{total_marks}/{total_max}"
     
     footer = (
         f"| {'Total'.ljust(section_width)} | "
@@ -68,10 +68,15 @@ with st.form(key='feedback_form'):
     marks_awarded = {}
     feedback_given = {}
 
-    # Adjust the titles to include maximum marks and change the number input step
+    # Adjust the titles to include maximum marks and change to slider input
     for section, max_marks in sections.items():
         title = f"Marks for {section} (Max: {max_marks})"
-        marks_awarded[section] = st.number_input(title, min_value=0.0, max_value=float(max_marks), step=0.1, format="%.1f")
+        marks_awarded[section] = st.slider(
+            title, 
+            min_value=0, 
+            max_value=max_marks, 
+            step=1
+        )
         feedback_given[section] = st.text_area(f"Feedback for {section}", value=dummy_feedback[section], height=100)
 
     # Create a submit button in the form using the "with" syntax
