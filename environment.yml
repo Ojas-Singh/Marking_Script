@@ -1,6 +1,0 @@
-name: base
-channels:
-  - schrodinger
-dependencies:
-  - python=3.6
-  - pymol
