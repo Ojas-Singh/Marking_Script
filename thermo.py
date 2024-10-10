@@ -1,23 +1,27 @@
 import streamlit as st
 
-# Define the sections and their maximum marks for the Thermochromic Compounds experiment
+# Define the sections and their maximum marks for the CH201-2 experiment
 sections = {
-    "THERMOCHROMISM DEFINITION": 15,
-    "REACTION EQUATION": 5,
-    "YIELD CALCULATION": 35,
-    "COLOUR CHANGE": 20,
-    "GEOMETRIC STRUCTURES": 10,
-    "PHASE TRANSITION EXAMPLES": 15
+    "STEREOCENTRE IDENTIFICATION": 2,
+    "STEREOISOMERS COUNT": 2,
+    "3D MODEL DRAWING": 6,
+    "ENANTIOMER DRAWING": 4,
+    "OPTICALLY ACTIVE STRUCTURE": 10,
+    "MESO FORM STRUCTURE": 6,
+    "DIASTEREOMER STRUCTURE": 4,
+    "ALKENE STRUCTURES": 6
 }
 
 # Dummy feedback for each section, tailored based on typical responses expected from students
 dummy_feedback = {
-    "THERMOCHROMISM DEFINITION": "Excellent explanation of thermochromism, covering all necessary scientific principles.",
-    "REACTION EQUATION": "The reaction equation is correctly balanced and clearly written.",
-    "YIELD CALCULATION": "Yield calculation is accurate, includes proper stoichiometric ratios and units.",
-    "COLOUR CHANGE": "Detailed description of the colour change process and correct identification of temperature range.",
-    "GEOMETRIC STRUCTURES": "Correctly named the possible geometric structures for the metal complex.",
-    "PHASE TRANSITION EXAMPLES": "Well-explained examples of solid-to-solid phase transitions, including appropriate scientific details."
+    "STEREOCENTRE IDENTIFICATION": "Correct identification of the stereocentres with clear reasoning.",
+    "STEREOISOMERS COUNT": "Accurate calculation of possible stereoisomers.",
+    "3D MODEL DRAWING": "Well-drawn 3D model with appropriate use of dash and wedge bonds.",
+    "ENANTIOMER DRAWING": "Correct mirror image of the 3D structure with proper representation.",
+    "OPTICALLY ACTIVE STRUCTURE": "Detailed and accurate drawing with all bonds and angles considered.",
+    "MESO FORM STRUCTURE": "Correctly drawn meso structure with symmetry properly illustrated.",
+    "DIASTEREOMER STRUCTURE": "Clear representation of a diastereomer with appropriate differences highlighted.",
+    "ALKENE STRUCTURES": "Correct structures of alkenes with proper geometry (cis/trans or E/Z)."
 }
 
 # Function to create a well-aligned feedback table
@@ -59,7 +63,7 @@ def create_feedback_table(marks_awarded, feedback_given, sections):
 
 # Streamlit form for input
 with st.form(key='feedback_form'):
-    st.title('Feedback Form for Thermochromic Compounds Experiment')
+    st.title('Feedback Form for CH201-2 Experiment')
 
     marks_awarded = {}
     feedback_given = {}
