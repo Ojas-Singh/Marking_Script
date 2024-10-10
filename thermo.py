@@ -4,12 +4,12 @@ import streamlit as st
 sections = {
     "STEREOCENTRE IDENTIFICATION": 2,
     "STEREOISOMERS COUNT": 2,
-    "3D MODEL DRAWING": 6,
+    "3D MODEL DRAWING": 12,
     "ENANTIOMER DRAWING": 4,
     "OPTICALLY ACTIVE STRUCTURE": 10,
-    "MESO FORM STRUCTURE": 6,
-    "DIASTEREOMER STRUCTURE": 4,
-    "ALKENE STRUCTURES": 6
+    "MESO FORM STRUCTURE": 9,
+    "DIASTEREOMER STRUCTURE": 7,
+    "ALKENE STRUCTURES": 14
 }
 
 # Dummy feedback for each section, tailored based on typical responses expected from students
