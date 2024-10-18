@@ -19,7 +19,7 @@ psi_weights_opt = optimized_weights[11:]  # Next 11 weights for psi
 # Load the PCA-transformed data and other datasets (no pocket data loading anymore)
 @st.cache_data
 def load_data():
-    pca_transformed_data = pd.read_parquet('filtered_data_surrounding_sequence_pca1.csv')
+    pca_transformed_data = pd.read_csv('filtered_data_surrounding_sequence_pca1.csv')
     with open('new_pca_model_optimized.pkl', 'rb') as f:
         pca = pickle.load(f)
     return pca_transformed_data, pca
