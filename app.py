@@ -153,7 +153,6 @@ def get_kde_values(data, bw_adjust=0.5):
 # Calculate KDE for each sequence and pocket data
 x_values_seq1, kde_values_seq1 = get_kde_values(pca1_matching_seq1)
 x_values_seq2, kde_values_seq2 = get_kde_values(pca1_matching_seq2)
-x_values_pocket, kde_values_pocket = get_kde_values(pca1_pocket)
 
 
 
