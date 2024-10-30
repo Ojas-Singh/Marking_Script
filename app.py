@@ -104,6 +104,69 @@ formatted_seq2 = format_sequence_for_legend(input_sequence2)
 # Fix the pocket mean to 0.53 as requested
 pocket_mean = 0.53
 
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Gaussian kernel function
+def gaussian_kernel(u, sigma):
+    return (1 / (sigma * np.sqrt(2 * np.pi))) * np.exp(- (u ** 2) / (2 * sigma ** 2))
+
+# Scoring function using KDE and Gaussian kernel weighting
+def compute_score(f_x, x_values, x0, sigma):
+    """
+    Calculate a weighted score based on the proximity of KDE distribution to a reference point (x0).
+    
+    Parameters:
+    - f_x: KDE density values at points x_values
+    - x_values: x-axis values corresponding to f_x
+    - x0: Reference point (pocket mean)
+    - sigma: Bandwidth parameter for the Gaussian kernel
+    
+    Returns:
+    - score: Higher score indicates closer alignment with pocket mean
+    """
+    # Calculate Gaussian kernel weights centered on x0
+    K = gaussian_kernel(x_values - x0, sigma)
+    
+    # Compute the weighted score as the integral of the product f_x * K
+    weighted_score = np.trapz(f_x * K, x_values)
+    return weighted_score
+
+# Function to retrieve KDE values from Seaborn
+def get_kde_values(data, bw_adjust=0.5):
+    """
+    Calculate KDE values for a given data using Seaborn.
+    
+    Parameters:
+    - data: Data points for which KDE needs to be computed
+    - bw_adjust: Bandwidth adjustment for KDE
+    
+    Returns:
+    - x_values, kde_values: x and y values for the KDE
+    """
+    kde_plot = sns.kdeplot(data, bw_adjust=bw_adjust)
+    x_values, kde_values = kde_plot.get_lines()[0].get_data()
+    plt.close()  # Close the plot as we only need the data
+    return x_values, kde_values
+
+# Calculate KDE for each sequence and pocket data
+x_values_seq1, kde_values_seq1 = get_kde_values(pca1_matching_seq1)
+x_values_seq2, kde_values_seq2 = get_kde_values(pca1_matching_seq2)
+x_values_pocket, kde_values_pocket = get_kde_values(pca1_pocket)
+
+
+
+# Set the bandwidth parameter for Gaussian kernel
+sigma = 0.1  # Adjust based on desired sensitivity
+
+# Compute scores for each sequence
+score_seq1 = compute_score(kde_values_seq1, x_values_seq1, pocket_mean, sigma)
+score_seq2 = compute_score(kde_values_seq2, x_values_seq2, pocket_mean, sigma)
+# Display scores in the Streamlit app
+st.write(f"Score for Sequence 1: {score_seq1}")
+st.write(f"Score for Sequence 2: {score_seq2}")
+
 # Create plot with KDE for matching sequences and a line for fixed pocket data
 fig, ax = plt.subplots(figsize=(10, 6))
 
