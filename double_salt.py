@@ -15,8 +15,8 @@ sections = {
     },
     "Q3. Melting Point Information": {
         "3(a). Experimental melting points": 3,
-        "3(b). Literature values with citations": 3,
-        "3(c). Comparison and conclusion on purity": 4,
+        "3(b). Literature values with citations": 5,
+        "3(c). Comparison and conclusion on purity": 2,
     },
     "Q4. 3-D Structures of Products": {
         "4(i). Drawing 3-D structures": 4,
