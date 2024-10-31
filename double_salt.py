@@ -3,8 +3,8 @@ import streamlit as st
 # Define the sections and their maximum marks for the Bromination of trans-Stilbene experiment
 sections = {
     "BROMINE QUANTITY CALCULATION": 8,
-    "TLC EXPERIMENTS - MOBILE PHASE": 18,
-    "MELTING POINT INFORMATION": 8,
+    "TLC EXPERIMENTS - MOBILE PHASE": 20,
+    "MELTING POINT INFORMATION": 10,
     "3-D STRUCTURES OF PRODUCTS": 10,
     "REACTION MECHANISM": 8,
     "OPTICAL ACTIVITY USING POLARIMETER": 2
