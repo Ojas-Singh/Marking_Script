@@ -1,27 +1,23 @@
 import streamlit as st
 
-# Define the sections and their maximum marks for the Double Salt experiment
+# Define the sections and their maximum marks for the Bromination of trans-Stilbene experiment
 sections = {
-    "DOUBLE SALT DEFINITION": 8,
-    "LATTICE ENERGY DEFINITION": 8,
-    "FORMATION EQUATION": 4,
-    "YIELD CALCULATION": 25,
-    "TAN PRECIPITATE EQUATION": 10,
-    "COPPER PERCENTAGE": 20,
-    "THEORETICAL %Cu": 10,
-    "FREE ENERGY AND ENTHALPY CHANGE": 15
+    "BROMINE QUANTITY CALCULATION": 8,
+    "TLC EXPERIMENTS - MOBILE PHASE": 18,
+    "MELTING POINT INFORMATION": 8,
+    "3-D STRUCTURES OF PRODUCTS": 10,
+    "REACTION MECHANISM": 8,
+    "OPTICAL ACTIVITY USING POLARIMETER": 2
 }
 
-# Dummy feedback for each section, ideally customized based on common issues or expectations
+# Dummy feedback customized for each section based on the expected answers
 dummy_feedback = {
-    "DOUBLE SALT DEFINITION": "Correctly explained the concept of a Double Salt.",
-    "LATTICE ENERGY DEFINITION": "Accurately defined Lattice Energy with appropriate examples.",
-    "FORMATION EQUATION": "Equation for the formation is correctly written and balanced.",
-    "YIELD CALCULATION": "Yield calculation is correct and clearly articulated.",
-    "TAN PRECIPITATE EQUATION": "Reaction equation for the formation of tan precipitate is accurate.",
-    "COPPER PERCENTAGE": "Correctly calculated the percentage of copper in the sample.",
-    "THEORETICAL %Cu": "Comparison between theoretical and experimental copper percentage is well analyzed.",
-    "FREE ENERGY AND ENTHALPY CHANGE": "Correctly calculated the free energy and enthalpy changes for the reaction."
+    "BROMINE QUANTITY CALCULATION": "Accurate calculation of bromine quantity needed for complete reaction.",
+    "TLC EXPERIMENTS - MOBILE PHASE": "Appropriate analysis of TLC data and selection of suitable mobile phase.",
+    "MELTING POINT INFORMATION": "Correctly recorded melting points and compared with literature values.",
+    "3-D STRUCTURES OF PRODUCTS": "Detailed and accurate 3-D structures of products provided.",
+    "REACTION MECHANISM": "Mechanism accurately drawn with proper curly arrow notation.",
+    "OPTICAL ACTIVITY USING POLARIMETER": "Correct explanation on the optical inactivity of meso isomer."
 }
 
 # Function to create a well-aligned feedback table
@@ -63,7 +59,7 @@ def create_feedback_table(marks_awarded, feedback_given, sections):
 
 # Streamlit form for input
 with st.form(key='feedback_form'):
-    st.title('Double Salt Experiment Feedback Form')
+    st.title('Bromination of trans-Stilbene Experiment Feedback Form')
 
     marks_awarded = {}
     feedback_given = {}
