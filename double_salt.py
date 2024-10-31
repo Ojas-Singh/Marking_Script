@@ -125,7 +125,7 @@ with st.form(key='feedback_form'):
             st.header(section)
             for subsection, max_marks in content.items():
                 title = f"Marks for {subsection} (Max: {max_marks})"
-                marks_awarded[section][subsection] = st.number_input(title, min_value=0.0, max_value=float(max_marks), step=1, format="%.1f")
+                marks_awarded[section][subsection] = st.number_input(title, min_value=0.0, max_value=float(max_marks), step=1.0, format="%.1f")
                 feedback_given[section][subsection] = st.text_area(f"Feedback for {subsection}", value=dummy_feedback[subsection], height=100)
         else:  # Top-level section without subsections
             title = f"Marks for {section} (Max: {content})"
