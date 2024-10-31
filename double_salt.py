@@ -129,7 +129,7 @@ with st.form(key='feedback_form'):
                 feedback_given[section][subsection] = st.text_area(f"Feedback for {subsection}", value=dummy_feedback[subsection], height=100)
         else:  # Top-level section without subsections
             title = f"Marks for {section} (Max: {content})"
-            marks_awarded[section] = st.number_input(title, min_value=0.0, max_value=float(content), step=0.1, format="%.1f")
+            marks_awarded[section] = st.number_input(title, min_value=0.0, max_value=float(content), step=1.0, format="%.1f")
             feedback_given[section] = st.text_area(f"Feedback for {section}", value=dummy_feedback[section], height=100)
 
     # Create a submit button in the form using the "with" syntax
