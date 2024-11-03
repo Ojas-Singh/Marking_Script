@@ -1,6 +1,6 @@
 import streamlit as st
 from Bio.PDB import PDBParser, PDBIO, Select
-from io import StringIO, BytesIO
+from io import StringIO
 import numpy as np
 
 # Custom Select class to include all atoms
@@ -10,7 +10,8 @@ class AllAtoms(Select):
 
 def parse_pdb(file):
     parser = PDBParser(QUIET=True)
-    structure = parser.get_structure('structure', file)
+    content = file.read().decode("utf-8")  # Decode the bytes to a string
+    structure = parser.get_structure('structure', StringIO(content))
     return structure
 
 def get_atom_key(atom):
@@ -63,7 +64,6 @@ def create_averaged_structure(structure, averaged_bvals):
     """
     Create a new structure with averaged B-values.
     """
-    # Clone the structure to avoid modifying the original
     from copy import deepcopy
     new_structure = deepcopy(structure)
 
