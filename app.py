@@ -102,7 +102,7 @@ pca1_matching_seq2 = process_sequence(input_sequence2, 2)
 formatted_seq2 = format_sequence_for_legend(input_sequence2)
 
 # Fix the pocket mean to 0.53 as requested
-pocket_mean = 0.53
+pocket_mean = 2.30
 
 import numpy as np
 import seaborn as sns
