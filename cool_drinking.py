@@ -10,8 +10,8 @@ sections = {
 
 # Dummy feedback for each section
 dummy_feedback = {
-    "Reproduction of Structures (Benzoate Anion, Alkyne, Ester, Amide, Optically Active Alcohol)": "Accurate representation of all chemical structures and associated labels.",
-    "Newman Projections of Ethane": "Correctly drawn and labeled eclipsed and staggered conformers.",
+    "Reproduction of Structures": "Accurate representation of all chemical structures and associated labels.",
+    "Newman Projections": "Correctly drawn and labeled eclipsed and staggered conformers.",
     "Mechanism for HBr Addition": "Detailed and precise mechanism, with accurate legends for each step.",
     "Configuration of Enantiomeric Structures": "Correctly assigned configurations for both enantiomers."
 }
