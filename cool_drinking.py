@@ -2,7 +2,7 @@ import streamlit as st
 
 # Define the sections and their maximum marks based on the new marking scheme
 sections = {
-    "Reproduction of Structures": 15,
+    "Reproduction of Structures": 10,
     "Newman Projections": 4,
     "Mechanism for HBr Addition": 15,
     "Configuration of Enantiomeric Structures": 8
