@@ -64,7 +64,7 @@ with st.form(key='feedback_form'):
     for section, max_marks in sections.items():
         title = f"Marks for {section} (Max: {max_marks})"
         # Explicitly cast max_marks to float to ensure type consistency
-        marks_awarded[section] = st.number_input(title, min_value=0.0, max_value=float(max_marks), step=0.1, format="%.1f")
+        marks_awarded[section] = st.number_input(title, min_value=0.0, max_value=float(max_marks), step=1.0, format="%.1f")
         feedback_given[section] = st.text_area(f"Feedback for {section}", value=dummy_feedback[section], height=100)
 
     # Create a submit button in the form using the "with" syntax
