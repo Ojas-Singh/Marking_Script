@@ -2,8 +2,8 @@ import streamlit as st
 
 # Define the sections and their maximum marks based on the new marking scheme
 sections = {
-    "Reproduction of Structures (Benzoate Anion, Alkyne, Ester, Amide, Optically Active Alcohol)": 15,
-    "Newman Projections of Ethane": 4,
+    "Reproduction of Structures": 15,
+    "Newman Projections": 4,
     "Mechanism for HBr Addition": 15,
     "Configuration of Enantiomeric Structures": 8
 }
