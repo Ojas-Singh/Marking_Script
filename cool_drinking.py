@@ -1,33 +1,19 @@
 import streamlit as st
 
-# Define the sections and their maximum marks
+# Define the sections and their maximum marks based on the new marking scheme
 sections = {
-    "ENTHALPY OF SOLVATION": 5,
-    "LATTICE ENERGY": 5,
-    "ENTHALPY OF SOLUTION NH4Cl": 5,
-    "ENTHALPY OF SOLUTION NH4NO3": 5,
-    "SELF-HEATING CAN": 15,
-    "MINIMUM MASS OF CaO": 15,
-    "DISSOLUTION NATURE": 5,
-    "SALT CHOICE FOR COOLING": 2,
-    "HEAT TRANSFER": 15,
-    "AMOUNT OF SALT": 15,
-    "TEMPERATURE PLOT": 13
+    "Reproduction of Structures (Benzoate Anion, Alkyne, Ester, Amide, Optically Active Alcohol)": 15,
+    "Newman Projections of Ethane": 4,
+    "Mechanism for HBr Addition": 15,
+    "Configuration of Enantiomeric Structures": 8
 }
 
 # Dummy feedback for each section
 dummy_feedback = {
-    "ENTHALPY OF SOLVATION": "Correct calculation of enthalpy of solvation.",
-    "LATTICE ENERGY": "Lattice energy calculation is accurate.",
-    "ENTHALPY OF SOLUTION NH4Cl": "Correctly calculated the enthalpy of solution for NH4Cl.",
-    "ENTHALPY OF SOLUTION NH4NO3": "Correctly calculated the enthalpy of solution for NH4NO3.",
-    "SELF-HEATING CAN": "Correctly calculated the energy needed for the self-heating can.",
-    "MINIMUM MASS OF CaO": "Correct estimation of the minimum mass of CaO needed.",
-    "DISSOLUTION NATURE": "Correctly identified the exothermic or endothermic nature of the dissolution.",
-    "SALT CHOICE FOR COOLING": "Appropriate choice of salt based on cost and safety.",
-    "HEAT TRANSFER": "Accurately calculated the heat transfer required.",
-    "AMOUNT OF SALT": "Correct calculation of the amount of salt needed to achieve the desired temperature change.",
-    "TEMPERATURE PLOT": "Correctly interpreted the temperature plot."
+    "Reproduction of Structures (Benzoate Anion, Alkyne, Ester, Amide, Optically Active Alcohol)": "Accurate representation of all chemical structures and associated labels.",
+    "Newman Projections of Ethane": "Correctly drawn and labeled eclipsed and staggered conformers.",
+    "Mechanism for HBr Addition": "Detailed and precise mechanism, with accurate legends for each step.",
+    "Configuration of Enantiomeric Structures": "Correctly assigned configurations for both enantiomers."
 }
 
 # Function to create a well-aligned feedback table
@@ -69,7 +55,7 @@ def create_feedback_table(marks_awarded, feedback_given, sections):
 
 # Streamlit form for input
 with st.form(key='feedback_form'):
-    st.title('Cool Drinking Experiment Feedback Form')
+    st.title('Assignment Feedback Form')
 
     marks_awarded = {}
     feedback_given = {}
