@@ -9,7 +9,7 @@ def load_dat(file):
     data.columns = ["q", "Intensity", "Other"]  # Adjust column names if needed
     return data
 
-st.title("SAXS Data Processor")
+st.title("SAXS Data Processor with Averaging")
 
 # File uploader
 uploaded_files = st.file_uploader("Upload .dat Files", type=["dat"], accept_multiple_files=True)
@@ -34,14 +34,20 @@ if uploaded_files:
     st.write("Merged Data:")
     st.dataframe(merged_data)
 
-    # # Plot merged data
-    # st.write("Plot:")
-    # for name, group in merged_data.groupby("File"):
-    #     st.line_chart(group.set_index("q")["Intensity"], use_container_width=True)
+    # Average Intensity for same q-values
+    averaged_data = merged_data.groupby("q", as_index=False)["Intensity"].mean()
 
-    # Export merged data
-    st.write("Export Merged Data:")
-    merged_file = "merged_data.dat"
-    merged_data.to_csv(merged_file, sep="\t", index=False)
-    with open(merged_file, "rb") as f:
-        st.download_button("Download Merged Data", data=f, file_name="merged_data.dat", mime="text/plain")
+    # Show averaged data
+    st.write("Averaged Data (Intensity averaged across files for the same q):")
+    st.dataframe(averaged_data)
+
+    # Plot averaged data
+    st.write("Plot of Averaged Intensity vs q:")
+    st.line_chart(averaged_data.set_index("q")["Intensity"], use_container_width=True)
+
+    # Export averaged data
+    st.write("Export Averaged Data:")
+    averaged_file = "averaged_data.dat"
+    averaged_data.to_csv(averaged_file, sep="\t", index=False)
+    with open(averaged_file, "rb") as f:
+        st.download_button("Download Averaged Data", data=f, file_name="averaged_data.dat", mime="text/plain")
