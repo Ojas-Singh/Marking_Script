@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 import os
 
 def load_dat(file):
@@ -23,21 +24,30 @@ if uploaded_files:
     
     # Process files
     merged_data = pd.DataFrame()
-    for file in uploaded_files:
+    colors = plt.cm.tab10(np.linspace(0, 1, len(uploaded_files)))  # Unique colors for each file
+    for file, color in zip(uploaded_files, colors):
         file_data = load_dat(file)
         # Filter by q-limit
         filtered_data = file_data[file_data["q"] <= q_limit]
         filtered_data["File"] = os.path.basename(file.name)  # Add filename as a column
+        filtered_data["Color"] = color
         merged_data = pd.concat([merged_data, filtered_data], ignore_index=True)
 
     # Show merged data
     st.write("Merged Data:")
     st.dataframe(merged_data)
 
-    # Plot merged data
-    st.write("Plot:")
+    # Plot merged data as scatter plots
+    st.write("Combined Scatter Plot:")
+    plt.figure(figsize=(10, 6))
     for name, group in merged_data.groupby("File"):
-        st.line_chart(group.set_index("q")["Intensity"], use_container_width=True)
+        plt.scatter(group["q"], group["Intensity"], label=name, alpha=0.7)
+    plt.xlabel("q (Å⁻¹)")
+    plt.ylabel("Intensity")
+    plt.title("SAXS Intensity vs q (Combined)")
+    plt.legend()
+    plt.grid()
+    st.pyplot(plt)
 
     # Export merged data
     st.write("Export Merged Data:")
