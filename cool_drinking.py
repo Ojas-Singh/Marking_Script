@@ -64,7 +64,7 @@ if uploaded_files:
 
     # Plot radius of gyration (Secondary y-axis)
     ax2 = ax1.twinx()
-    ax2.errorbar(frame_df["Frame"], frame_df["Rg"], yerr=0.2, fmt="o", color="red", label="Rg", markersize=5)
+    #ax2.errorbar(frame_df["Frame"], frame_df["Rg"], yerr=0.2, fmt="o", color="red", label="Rg", markersize=5)
     ax2.set_ylabel("Radius of Gyration", color="red")
     ax2.tick_params(axis="y", labelcolor="red")
     ax2.legend(loc="upper right")
