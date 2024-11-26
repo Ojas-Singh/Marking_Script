@@ -38,7 +38,7 @@ if uploaded_files:
         filtered_data = file_data[file_data["q"] <= q_limit]
         avg_intensity = filtered_data["Intensity"].mean()
         frame_number = extract_frame_number(os.path.basename(file.name))
-        frame_data.append({"Frame": frame_number, "Avg_Intensity": avg_intensity, "Rg": np.random.uniform(3, 5)})
+        frame_data.append({"Frame": frame_number, "Avg_Intensity": avg_intensity, "Rg": 0})
 
     # Create DataFrame from collected data
     frame_df = pd.DataFrame(frame_data).sort_values(by="Frame")
