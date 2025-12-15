@@ -1,0 +1,9 @@
+streamlit
+
+glycowork
+mdtraj
+pandas
+matplotlib
+seaborn
+scipy
+networkx
