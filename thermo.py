@@ -1,27 +1,19 @@
 import streamlit as st
 
-# Define the sections and their maximum marks for the CH201-2 experiment
+# Define the sections and their maximum marks for the new marking scheme
 sections = {
-    "STEREOCENTRE IDENTIFICATION": 2,
-    "STEREOISOMERS COUNT": 2,
-    "3D MODEL DRAWING": 12,
-    "ENANTIOMER DRAWING": 4,
-    "OPTICALLY ACTIVE STRUCTURE": 10,
-    "MESO FORM STRUCTURE": 9,
-    "DIASTEREOMER STRUCTURE": 7,
-    "ALKENE STRUCTURES": 14
+    "Introduction": 5,
+    "Experimental Section": 2,
+    "Results and Discussion": 4,
+    "Conclusion": 1.5
 }
 
 # Dummy feedback for each section, tailored based on typical responses expected from students
 dummy_feedback = {
-    "STEREOCENTRE IDENTIFICATION": "Correct identification of the stereocentres with clear reasoning.",
-    "STEREOISOMERS COUNT": "Accurate calculation of possible stereoisomers.",
-    "3D MODEL DRAWING": "Well-drawn 3D model with appropriate use of dash and wedge bonds.",
-    "ENANTIOMER DRAWING": "Correct mirror image of the 3D structure with proper representation.",
-    "OPTICALLY ACTIVE STRUCTURE": "Detailed and accurate drawing with all bonds and angles considered.",
-    "MESO FORM STRUCTURE": "Correctly drawn meso structure with symmetry properly illustrated.",
-    "DIASTEREOMER STRUCTURE": "Clear representation of a diastereomer with appropriate differences highlighted.",
-    "ALKENE STRUCTURES": "Correct structures of alkenes with proper geometry (cis/trans or E/Z)."
+    "Introduction": "Ensure the introduction states the position, problem, two possibilities, and a proposal.",
+    "Experimental Section": "Written in third-person past tense, with correct format and unit usage.",
+    "Results and Discussion": "Graph and table titles, units, and equivalence points should be well presented.",
+    "Conclusion": "Clearly summarize the results, reference the introduction, and suggest future work."
 }
 
 # Function to create a well-aligned feedback table
@@ -63,7 +55,7 @@ def create_feedback_table(marks_awarded, feedback_given, sections):
 
 # Streamlit form for input
 with st.form(key='feedback_form'):
-    st.title('Feedback Form for CH201-2 Experiment')
+    st.title('Feedback Form for Experiment Reports')
 
     marks_awarded = {}
     feedback_given = {}
@@ -74,7 +66,7 @@ with st.form(key='feedback_form'):
         marks_awarded[section] = st.slider(
             title, 
             min_value=0, 
-            max_value=max_marks, 
+            max_value=int(max_marks), 
             step=1
         )
         feedback_given[section] = st.text_area(f"Feedback for {section}", value=dummy_feedback[section], height=100)
